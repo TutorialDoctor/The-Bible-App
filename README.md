@@ -1,6 +1,3 @@
-# The-Bible-App
-A full featured Bible App made with the Pythonista IOS app.
-
 A redesign of the Bible App I created [here](https://github.com/TutorialDoctor/Pythonista-Projects/tree/master/Projects/Apps/Basic%20Bible)
 
 Creating a **Bible App** with **Pythonista** to learn how to use the Sqlite3 module.
