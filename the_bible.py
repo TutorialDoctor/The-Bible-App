@@ -1038,7 +1038,7 @@ def add_search():
 # I think it is okay to use single-letter variable names for small tasks, but certainly not all throughout your code. Comments help here also.
 
 #--- NEW LAYOUT
-t=ui.load_view('title')
+#t=ui.load_view('title')
 
 #--- IMPLEMENTATION
 # Getting ui elements and setting actions
