@@ -752,6 +752,8 @@ def save_selection(sender):
 
 # Same logic as save_selection
 def selectionToThoughts(sender):
+	console.hud_alert('captured',duration=.1)
+	sound.play_effect('rpg:Creak3')
 	beg= contents.selected_range[0]
 	end = contents.selected_range[1]
 	txt = contents.text
