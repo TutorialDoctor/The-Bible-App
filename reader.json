@@ -1,0 +1,203 @@
+[
+  {
+    "selected" : false,
+    "frame" : "{{0, 0}, {768, 1024}}",
+    "class" : "View",
+    "nodes" : [
+      {
+        "selected" : true,
+        "frame" : "{{18, 148}, {689, 876}}",
+        "class" : "View",
+        "nodes" : [
+          {
+            "selected" : true,
+            "frame" : "{{0, 0}, {689, 876}}",
+            "class" : "TextView",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "uuid" : "E73842E6-EAC1-4AF8-9A66-3B2EC87ACC58",
+              "font_size" : 17,
+              "frame" : "{{194, 383}, {200, 200}}",
+              "tint_color" : "RGBA(0.401754,0.401754,0.558962,1.000000)",
+              "editable" : false,
+              "alignment" : "left",
+              "autocorrection_type" : "default",
+              "text" : "Eos laborum sit quod nisi. Dignissimos possimus molestiae necessitatibus a qui repudiandae quibusdam. Impedit voluptates beatae consequuntur et sapiente fugiat vero fuga. Temporibus nobis tempore et iste. Omnis voluptatem sed accusantium. Dolorum veritatis consequatur est officiis assumenda. Vitae doloribus sunt soluta et velit accusamus maxime.\n\nEt perspiciatis ea ipsum delectus. Rerum at et fuga dolores. Reiciendis nostrum aut possimus dolore quod quis quibusdam occaecati. Facere consectetur rerum sed ipsum ex. Sit quia ipsum sint provident autem atque vitae est.\n\nEst sint aut nesciunt autem. Debitis dignissimos iure assumenda sunt impedit. Rerum soluta voluptate esse eum. Incidunt qui eveniet culpa et. Maiores occaecati perferendis voluptas id sunt sapiente qui recusandae. Commodi accusamus exercitationem dolor velit esse occaecati dolorem. Illo nostrum ab non et eveniet sit enim dolorem. Est ducimus perferendis et dignissimos. Est rerum harum ex consequatur et odio est possimus.\n\nEt modi sit animi temporibus. Dolorem dignissimos est sit qui. Porro sed nisi itaque necessitatibus. Molestiae aut in autem libero autem voluptates. Assumenda tempora saepe iste. Vel illo sit vero vitae rem reiciendis placeat. Aut fuga ipsam itaque et provident autem. Veritatis rem incidunt repellat.\n\nEius culpa esse qui qui consequatur reprehenderit. Est consequatur et libero cupiditate vitae pariatur vel. Non harum repudiandae amet at nulla vel facilis. Expedita mollitia corrupti qui corrupti rerum. Totam magni reprehenderit culpa ipsum.\n\nAutem iusto consectetur soluta voluptates. Saepe consequuntur vero quas quasi quisquam numquam. Quibusdam minus in voluptate fuga. Magnam ea consectetur blanditiis sequi ullam ad magnam eum. Sint quod recusandae explicabo repudiandae repellendus.\n\nEos laborum sit quod nisi. Dignissimos possimus molestiae necessitatibus a qui repudiandae quibusdam. Impedit voluptates beatae consequuntur et sapiente fugiat vero fuga. Temporibus nobis tempore et iste. Omnis voluptatem sed accusantium. Dolorum veritatis consequatur est officiis assumenda. Vitae doloribus sunt soluta et velit accusamus maxime.\n\nEt perspiciatis ea ipsum delectus. Rerum at et fuga dolores. Reiciendis nostrum aut possimus dolore quod quis quibusdam occaecati. Facere consectetur rerum sed ipsum ex. Sit quia ipsum sint provident autem atque vitae est.\n\nEst sint aut nesciunt autem. Debitis dignissimos iure assumenda sunt impedit. Rerum soluta voluptate esse eum. Incidunt qui eveniet culpa et. Maiores occaecati perferendis voluptas id sunt sapiente qui recusandae. Commodi accusamus exercitationem dolor velit esse occaecati dolorem. Illo nostrum ab non et eveniet sit enim dolorem. Est ducimus perferendis et dignissimos. Est rerum harum ex consequatur et odio est possimus.\n\nEt modi sit animi temporibus. Dolorem dignissimos est sit qui. Porro sed nisi itaque necessitatibus. Molestiae aut in autem libero autem voluptates. Assumenda tempora saepe iste. Vel illo sit vero vitae rem reiciendis placeat. Aut fuga ipsam itaque et provident autem. Veritatis rem incidunt repellat.\n\nEius culpa esse qui qui consequatur reprehenderit. Est consequatur et libero cupiditate vitae pariatur vel. Non harum repudiandae amet at nulla vel facilis. Expedita mollitia corrupti qui corrupti rerum. Totam magni reprehenderit culpa ipsum.\n\nAutem iusto consectetur soluta voluptates. Saepe consequuntur vero quas quasi quisquam numquam. Quibusdam minus in voluptate fuga. Magnam ea consectetur blanditiis sequi ullam ad magnam eum. Sint quod recusandae explicabo repudiandae repellendus.",
+              "text_color" : "RGBA(0.448113,0.448113,0.448113,1.000000)",
+              "font_name" : "Avenir-Book",
+              "spellchecking_type" : "default",
+              "class" : "TextView",
+              "name" : "textview1",
+              "flex" : "WH"
+            }
+          }
+        ],
+        "attributes" : {
+          "flex" : "W",
+          "frame" : "{{334, 462}, {100, 100}}",
+          "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "class" : "View",
+          "name" : "main",
+          "uuid" : "4B81462F-A2AF-4A8F-B328-7CF9536D236B"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{0, 0}, {768, 140}}",
+        "class" : "View",
+        "nodes" : [
+          {
+            "selected" : false,
+            "frame" : "{{199, 28}, {371, 85}}",
+            "class" : "Label",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "uuid" : "D6D958CF-ABFC-4E46-A2FF-7A0EAC85F16B",
+              "font_size" : 26,
+              "frame" : "{{219, 54}, {150, 32}}",
+              "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+              "number_of_lines" : 2,
+              "alignment" : "center",
+              "text" : "Header",
+              "text_color" : "RGBA(0.113208,0.113208,0.113208,1.000000)",
+              "font_name" : "Avenir-Book",
+              "class" : "Label",
+              "name" : "label",
+              "flex" : "W"
+            }
+          },
+          {
+            "selected" : false,
+            "frame" : "{{36, 28}, {60, 32}}",
+            "class" : "Button",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "image_name" : "iob:social_windows_outline_32",
+              "frame" : "{{254, 54}, {80, 32}}",
+              "tint_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+              "title" : "",
+              "uuid" : "AB1BB981-DD91-4CCE-814A-1B5FB6248588",
+              "class" : "Button",
+              "font_size" : 15,
+              "name" : "window button"
+            }
+          },
+          {
+            "selected" : false,
+            "frame" : "{{123.5, 28}, {60, 32}}",
+            "class" : "Button",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "image_name" : "iob:ios7_checkmark_outline_32",
+              "frame" : "{{254, 54}, {80, 32}}",
+              "tint_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+              "title" : "",
+              "uuid" : "AB1BB981-DD91-4CCE-814A-1B5FB6248588",
+              "class" : "Button",
+              "name" : "window button",
+              "font_size" : 15
+            }
+          },
+          {
+            "selected" : false,
+            "frame" : "{{36, 81}, {60, 32}}",
+            "class" : "Button",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "image_name" : "iob:ios7_box_outline_32",
+              "frame" : "{{254, 54}, {80, 32}}",
+              "tint_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+              "title" : "",
+              "uuid" : "AB1BB981-DD91-4CCE-814A-1B5FB6248588",
+              "class" : "Button",
+              "name" : "window button",
+              "font_size" : 15
+            }
+          },
+          {
+            "selected" : false,
+            "frame" : "{{123.5, 81}, {60, 32}}",
+            "class" : "Button",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "image_name" : "iob:ios7_filing_outline_32",
+              "frame" : "{{254, 54}, {80, 32}}",
+              "tint_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+              "title" : "",
+              "uuid" : "AB1BB981-DD91-4CCE-814A-1B5FB6248588",
+              "class" : "Button",
+              "font_size" : 15,
+              "name" : "window button"
+            }
+          }
+        ],
+        "attributes" : {
+          "uuid" : "FC81189F-CA1F-469C-A092-F6B42960170D",
+          "frame" : "{{334, 462}, {100, 100}}",
+          "alpha" : 0.5,
+          "class" : "View",
+          "name" : "header",
+          "flex" : "WB"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{509, 0}, {259, 1024}}",
+        "class" : "View",
+        "nodes" : [
+          {
+            "selected" : true,
+            "frame" : "{{30, 77}, {200, 823}}",
+            "class" : "TableView",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "flex" : "WH",
+              "data_source_items" : "Row 1\nRow 2\nRow 3",
+              "row_height" : 44,
+              "frame" : "{{30, 409}, {200, 200}}",
+              "uuid" : "524B853E-816E-420C-8AFF-071723717746",
+              "data_source_number_of_lines" : 1,
+              "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+              "data_source_delete_enabled" : true,
+              "data_source_font_size" : 18,
+              "class" : "TableView",
+              "name" : "table"
+            }
+          }
+        ],
+        "attributes" : {
+          "alpha" : 0.9,
+          "flex" : "L",
+          "custom_class" : "",
+          "frame" : "{{334, 462}, {100, 100}}",
+          "uuid" : "380566FD-1A9C-4C8A-B99D-851A4D4729F4",
+          "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "class" : "View",
+          "name" : "panel"
+        }
+      }
+    ],
+    "attributes" : {
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "enabled" : true,
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "custom_class" : "",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "flex" : ""
+    }
+  }
+]
