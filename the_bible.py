@@ -38,7 +38,7 @@ churches=['Union City (CA)','Vallejo (CA)','Moreno Valley (CA)','Baton Rouge (LA
 
 images = {
 	'0':'iob:share_32',
-	'1':'iob:alert_circled_24',
+	'1':'iob:ios7_information_32',
 	'2':'iob:ios7_videocam_32',
 	'3':'iob:ios7_albums_outline_32',
 	'4':'iob:camera_32',
@@ -1084,10 +1084,11 @@ def add_search():
 	ObjCInstance(items[2]).customView=ObjCInstance(search)
 
 def show_tips(sender):
-	if tip.hidden:
-		tip.hidden=False
-	elif not tip.hidden:
-		tip.hidden=True
+	for tip in tips:
+		if tip.hidden:
+			tip.hidden=False
+		elif not tip.hidden:
+			tip.hidden=True
 
 def view_video(sender):
 	webbrowser.open('https://youtu.be/QWotciwYoGQ')
@@ -1270,8 +1271,9 @@ for x in background_changes:
 # END THEMES
 
 #--- Tips
-tip = bible['tip']
-tip.hidden=True
+tips = [bible['tip'],bible['tip2'],bible['tip3']]
+for tip in tips:
+	tip.hidden=True
 tip_button = bible.right_button_items[1]
 tip_button.action = show_tips
 
