@@ -1,4 +1,4 @@
-import ui,sqlite3,datetime,sound,console,clipboard,dialogs,re,objc_util,editor,os,webbrowser,speech,fileinput,zipfile
+import ui,sqlite3,datetime,sound,console,clipboard,dialogs,re,objc_util,editor,os,webbrowser,speech,fileinput,zipfile,webbrowser
 from objc_util import *
 
 app = UIApplication.sharedApplication()
@@ -34,19 +34,25 @@ translations={"t_asv":"American Standard - ASV1901 (ASV)",
 "t_ylt":"Young's Literal Translation (YLT)"}
 # END VARIABLES
 
+churches=['Union City (CA)','Vallejo (CA)','Moreno Valley (CA)','Baton Rouge (LA)','Tyler (TX)','Clarksville (NC)','Morrow (GA)','Xenia (OH)']
 
 images = {
 	'0':'iob:share_32',
 	'1':'iob:alert_circled_24',
-	'2':'iob:arrow_shrink_24',
-	'3':'iob:beaker_24',
-	'4':'iob:bluetooth_24',
+	'2':'iob:ios7_videocam_32',
+	'3':'iob:ios7_albums_outline_32',
+	'4':'iob:camera_32',
 	'5':'iob:calendar_24',
 	'6':'iob:chatbox_working_24',
 	'7':'iob:checkmark_circled_24',
 	'8':'iob:clock_24',
-	'9':'iob:coffee_24'
 	}
+
+def create_assembly_folders():
+	try:
+		for folder in churches:
+			document_directory=os.mkdir(folder)
+	except:None
 
 
 # Try to make a directory named 'Notes.' Do nothing if there is an exception error.
@@ -515,6 +521,40 @@ map_view = """
 #--- CLASSES			
 # I will leave the results as a list so that I can load them into a tableview data source
 # Textfield
+
+# Someone elses' code. works well but I'd have to move all functions to thos class. Apply to Notes view to test.
+class customView(ui.View):
+  '''a view that can be moved and resized
+  '''
+  def __init__(self,**kvargs):
+    super().__init__(self,**kvargs)
+    self.frame = (0,0,500,500)
+    self.wmin = 300
+    self.hmin = 300
+    iv = ui.ImageView()
+    iv.image = ui.Image('iob:arrow_expand_24')
+    iv.frame = (500-28, 500-28, 24, 24)
+    iv.flex = 'LT'
+    self.add_subview(iv)
+    iv = ui.ImageView()
+    iv.image = ui.Image('iob:ios7_circle_outline_32')
+    iv.frame = (500-32, 500-32, 32, 32)
+    iv.flex = 'LT'
+    self.add_subview(iv)
+  def touch_moved(self, touch):
+     x,y = touch.location
+     xp,yp = touch.prev_location
+     dx = x-xp
+     dy = y-yp
+     if x > self.width - 40 and y > self.height - 40:
+       self.width += dx
+       self.height += dy
+       if self.width < self.wmin: self.width = self.wmin
+       if self.height < self.hmin: self.height = self.hmin
+     else:
+       self.x += dx
+       self.y += dy
+
 class MyTextFieldDelegate (object):
 	def textfield_should_begin_editing(self, textfield):
 		return True
@@ -575,8 +615,7 @@ class MyTableViewDelegate (object):
 	def tableview_title_for_delete_button(self, tableview, section, row):
 		# Return the title for the 'swipe-to-***' button.
 		return 'Delete'
-	
-import ui
+
 
 class MyView (ui.View):
 	def __init__(self):
@@ -633,6 +672,22 @@ class MyView (ui.View):
 		# Called when the on-screen keyboard appears/disappears
 		# Note: The frame is in screen coordinates.
 		pass
+# CLASSES
+class MyTableViewDelegate2 (object):
+	def tableview_did_select(self, tableview, section, row):
+		# Called when a row was selected.
+		cell = tableview.data_source.items[row]
+		set_view_text(str(cell))
+		header_label.text = tableview.data_source.items[row].strip('.txt').capitalize()
+		sound.play_effect('ui:click2')
+
+	def tableview_did_deselect(self, tableview, section, row):
+		# Called when a row was de-selected (in multiple selection mode).
+		pass
+
+	def tableview_title_for_delete_button(self, tableview, section, row):
+		# Return the title for the 'swipe-to-***' button.
+		return 'Trash it'
 # END CLASSES
 
 
@@ -939,7 +994,7 @@ def load_mark(sender):
 	#heading.text=selected_book+' '+str(selected_chap)
 
 def save_bookmarks(sender):
-	bookmarks_file=dialogs.input_alert('name')+'.txt'
+	bookmarks_file='bookmark: '+dialogs.input_alert('name')+'.txt'
 	txt=book_marks.segments
 	for x in txt:
 		with open('Notes/'+bookmarks_file,'a',encoding='utf-8')	as outfile:
@@ -1004,7 +1059,7 @@ def show_thoughts(sender):
 
 def hide_thoughts(sender):
 	thoughts_view.hidden=True
-	print(sender.superview.name)
+	#print(sender.superview.name)
 
 def create_menu():
 	keys = list(images.keys())
@@ -1027,18 +1082,66 @@ def add_search():
 	b_item4 = ui.ButtonItem()
 	b_item4.title='hehe'
 	ObjCInstance(items[2]).customView=ObjCInstance(search)
+
+def show_tips(sender):
+	if tip.hidden:
+		tip.hidden=False
+	elif not tip.hidden:
+		tip.hidden=True
+
+def view_video(sender):
+	webbrowser.open('https://youtu.be/QWotciwYoGQ')
+
+def set_view_text(f):
+	with open('Notes/'+f,'r',encoding='utf-8') as infile:
+		main_view = reader['main']
+		text_view = main_view['textview1']
+		text_view.text = infile.read()
+		text_view.editable = False
+
+def show_panel(sender):
+	if panel.hidden:
+		panel.hidden=False
+	else:
+		panel.hidden=True
+	sound.play_effect('8ve:8ve-beep-shinymetal')
+	
+def fill_tableview():
+	table = reader['panel']['table']
+	table.delegate = MyTableViewDelegate2()
+	# Get a list of files in the 'Files' directory
+	# You can use any directory relative to the current directory
+	table_items = os.listdir('./Notes')
+	
+	# You can use a list or a class as the data source for the tableview
+	list_source = ui.ListDataSource(table_items)
+	#class_source = MyTableViewDataSource()
+	# I will use a list
+	table.data_source = list_source
+
+def show_reader(sender):
+	reader.present()
+
+def capture_screen(sender):
+   v=bible
+   with ui.ImageContext(v.width,v.height) as c:
+   	v.draw_snapshot()
+   	c.get_image().show()
+   	sound.play_effect('8ve:8ve-tap-kissy')
+   	dialogs.hud_alert('captured',duration=.1)
 # END FUNCTIONS
 
 
 # I think it is okay to use single-letter variable names for small tasks, but certainly not all throughout your code. Comments help here also.
 
 #--- NEW LAYOUT
-#t=ui.load_view('title')
+t=ui.load_view('title')
 
 #--- IMPLEMENTATION
 # Getting ui elements and setting actions
 bible = ui.load_view()
-l = create_l_buttonItems('  File  ','  Themes  ','  Settings  ')
+create_menu()
+l = create_l_buttonItems('  File  ','  Themes  ','  Settings  ','Translations')
 bible.left_button_items = l
 nav=bible['navigationview']
 top_pane=bible['top pane']
@@ -1078,8 +1181,8 @@ clear_button.action=clear_thoughts
 #fav_button.action=save_selection
 clip_button = thoughts_view['btn_copy']
 clip_button.action=clip
-#translate_button = right_pane['panel']['btn_translate']
-#translate_button.action=translate
+translate_button =bible.left_button_items[3]
+translate_button.action=translate
 search_button = top_pane['btn_search']
 search_button.action = show_search
 search_close_button = bible['search']['btn_close']
@@ -1088,10 +1191,11 @@ file_button = bible.left_button_items[0]
 file_button.action=view_files
 theme_button = bible.left_button_items[1]
 theme_button.action = choose_theme
-#translation_label = left_pane['label_translation']
+translation_label = bible['label_translation']
 #map_button = right_pane['panel']['btn_map']
 #map_button.action = show_map
-#--- Book Marks
+
+#--- BOOK MARKS
 book_marks = bible['book_marks']
 book_mark_button = top_pane['btn_book_mark']
 book_mark_button.action = add_mark
@@ -1100,22 +1204,26 @@ save_bookmarks_button=top_pane['btn_save_bookmarks']
 save_bookmarks_button.action=save_bookmarks
 clear_book_marks_button = top_pane['btn_clear_bookmarks']
 clear_book_marks_button.action=clear_bookmarks
+# END BOOKMARKS
+
 #info_view = ui.load_view_str(info_view)
 #info_button = right_pane['panel']['btn_info']
 #info_button.action = show_info
 #speak_button=right_pane['panel']['btn_speak']
 #speak_button.action=speak_scripture
-#zip_button = right_pane['panel']['btn_zip']
-#zip_button.action = zip_notes
+zip_button = top_pane['btn_zip']
+zip_button.action = zip_notes
 #chapters.data_source = ui.ListDataSource(range(1,100))
 
-create_menu()
 share_button = bible.right_button_items[0]
 share_button.action=share
 deep_search_field = top_pane['deep_search_field']
 deep_search_field.placeholder = 'Find'
 deep_search_field.delegate = MyTextFieldDelegate()
+bible.right_button_items[4].action = capture_screen
 
+video_button = bible.right_button_items[2]
+video_button.action = view_video
 #--- SEARCH ENGINE
 search=bible['search']
 editor.apply_ui_theme(search)
@@ -1161,6 +1269,12 @@ for x in background_changes:
 		None
 # END THEMES
 
+#--- Tips
+tip = bible['tip']
+tip.hidden=True
+tip_button = bible.right_button_items[1]
+tip_button.action = show_tips
+
 #--- MAP
 #map_view=ui.load_view_str(map_view)
 #scroll=map_view['scrollview']
@@ -1172,6 +1286,19 @@ for x in background_changes:
 #scroll.content_size=tuple(map.image.size)
 # END MAP
 
+# READER CODE
+reader = ui.load_view('reader')
+header = reader['header']
+header_label = header['label']
+panel = reader['panel']
+panel.hidden=True
+btn_window = reader['header']['window button']
+btn_window.action = show_panel
+reader_button = bible.right_button_items[3]
+reader_button.action=show_reader
+# IMPLEMENTATION
+fill_tableview()
+
 #thought_bubble.text = instructions
 
 # This lambda function is what allows me to pass arguments to a view's action function. This function is what makes it all work.
@@ -1181,11 +1308,16 @@ f = lambda sender: updates(sender,chapters.data_source,testaments)
 books.data_source.items = [x[0] for x in sqlite3.connect('bible-sqlite.db').execute('select n from key_english')]
 books.data_source.action = f
 
+#for v in top_pane.subviews:
+#	print(v.action)
+
 #--- SPLASH
 #splash = ui.load_view_str(splash_view)
 #splash.multitouch_enabled=True
 #splash.present(hide_title_bar=True)
 
+#assembly=dialogs.list_dialog('Choose your Assembly',churches)
+#dialogs.alert('Welcome {}'.format(assembly))
 #choose_file()
 # Display the bible witha hidden title bar and restrict its orientation to landscape.
 #bible.present(orientations=['landscape'],hide_title_bar=True)
@@ -1193,5 +1325,3 @@ books.data_source.action = f
 
 editor.apply_ui_theme(bible)
 editor.present_themed(bible)
-
-
