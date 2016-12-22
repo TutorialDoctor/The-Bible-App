@@ -13,7 +13,7 @@
         ],
         "attributes" : {
           "uuid" : "BA7FF8D1-4C36-41E3-B836-B747C2CFD9E3",
-          "font_size" : 17,
+          "flex" : "WHR",
           "frame" : "{{412, 284}, {200, 200}}",
           "editable" : false,
           "alignment" : "left",
@@ -23,12 +23,12 @@
           "spellchecking_type" : "default",
           "class" : "TextView",
           "name" : "contents",
-          "flex" : "WHR"
+          "font_size" : 17
         }
       },
       {
         "selected" : false,
-        "frame" : "{{8, 68}, {62, 869}}",
+        "frame" : "{{8, 99}, {62, 838}}",
         "class" : "TableView",
         "nodes" : [
 
@@ -36,15 +36,15 @@
         "attributes" : {
           "flex" : "H",
           "data_source_items" : "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\n91\n92\n93\n94\n95\n96\n97\n98\n99\n100\n101\n102\n103\n104\n105\n106\n107\n108\n109\n110\n111\n112\n113\n114\n115\n116\n117\n118\n119\n120\n121\n122\n123\n124\n125\n126\n127\n128\n129\n130\n131\n132\n133\n134\n135\n136\n137\n138\n139\n140\n141\n142\n143\n144\n145\n146\n147\n148\n149\n150\n",
-          "name" : "chapters",
-          "frame" : "{{170, 170}, {200, 200}}",
-          "class" : "TableView",
-          "uuid" : "298BD74A-17FC-4242-BB69-83F319D53F5B",
-          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
-          "data_source_font_size" : 18,
-          "data_source_number_of_lines" : 1,
           "row_height" : 44,
-          "data_source_delete_enabled" : true
+          "frame" : "{{170, 170}, {200, 200}}",
+          "data_source_number_of_lines" : 1,
+          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+          "class" : "TableView",
+          "data_source_font_size" : 18,
+          "uuid" : "298BD74A-17FC-4242-BB69-83F319D53F5B",
+          "data_source_delete_enabled" : true,
+          "name" : "chapters"
         }
       },
       {
@@ -55,12 +55,12 @@
 
         ],
         "attributes" : {
-          "class" : "SegmentedControl",
-          "frame" : "{{210, 256}, {120, 29}}",
-          "flex" : "WLRT",
           "segments" : "",
+          "frame" : "{{210, 256}, {120, 29}}",
+          "uuid" : "2A902B15-E2EC-4D99-9A4F-64E5BF233289",
           "name" : "book_marks",
-          "uuid" : "2A902B15-E2EC-4D99-9A4F-64E5BF233289"
+          "class" : "SegmentedControl",
+          "flex" : "WLRT"
         }
       },
       {
@@ -76,13 +76,13 @@
 
             ],
             "attributes" : {
-              "font_size" : 15,
+              "image_name" : "iob:bookmark_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "name" : "btn_book_mark",
-              "image_name" : "iob:bookmark_32"
+              "font_size" : 15,
+              "name" : "btn_book_mark"
             }
           },
           {
@@ -93,13 +93,13 @@
 
             ],
             "attributes" : {
-              "name" : "btn_save_bookmarks",
+              "image_name" : "iob:ios7_bookmarks_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "font_size" : 15,
-              "image_name" : "iob:ios7_bookmarks_32"
+              "name" : "btn_save_bookmarks",
+              "font_size" : 15
             }
           },
           {
@@ -110,13 +110,13 @@
 
             ],
             "attributes" : {
-              "name" : "btn_view_thoughts",
+              "image_name" : "iob:eye_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "font_size" : 15,
-              "image_name" : "iob:eye_32"
+              "name" : "btn_view_thoughts",
+              "font_size" : 15
             }
           },
           {
@@ -127,12 +127,12 @@
 
             ],
             "attributes" : {
-              "segments" : "Old|New",
-              "frame" : "{{338, 6}, {120, 29}}",
-              "uuid" : "0C19E677-0CBA-48F4-A423-100D1E8E5686",
               "name" : "testaments",
+              "frame" : "{{338, 6}, {120, 29}}",
+              "flex" : "LR",
               "class" : "SegmentedControl",
-              "flex" : "LR"
+              "segments" : "Old|New",
+              "uuid" : "0C19E677-0CBA-48F4-A423-100D1E8E5686"
             }
           },
           {
@@ -143,13 +143,13 @@
 
             ],
             "attributes" : {
-              "name" : "btn_search",
+              "image_name" : "iob:ios7_search_strong_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "font_size" : 15,
-              "image_name" : "iob:ios7_search_strong_32"
+              "name" : "btn_search",
+              "font_size" : 15
             }
           },
           {
@@ -160,13 +160,13 @@
 
             ],
             "attributes" : {
-              "font_size" : 15,
+              "image_name" : "iob:archive_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "name" : "btn_load",
-              "image_name" : "iob:archive_32"
+              "font_size" : 15,
+              "name" : "btn_load"
             }
           },
           {
@@ -177,13 +177,13 @@
 
             ],
             "attributes" : {
-              "font_size" : 15,
+              "image_name" : "iob:chatbox_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "name" : "btn_show_thoughts",
-              "image_name" : "iob:chatbox_32"
+              "font_size" : 15,
+              "name" : "btn_show_thoughts"
             }
           },
           {
@@ -216,13 +216,13 @@
 
             ],
             "attributes" : {
-              "name" : "btn_thoughts",
+              "image_name" : "iob:forward_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "font_size" : 15,
-              "image_name" : "iob:forward_32"
+              "name" : "btn_thoughts",
+              "font_size" : 15
             }
           },
           {
@@ -233,13 +233,13 @@
 
             ],
             "attributes" : {
-              "font_size" : 15,
+              "image_name" : "iob:ios7_trash_32",
               "frame" : "{{358, 5}, {80, 32}}",
               "title" : "Button",
               "uuid" : "05455CF7-8CF2-429E-A60E-99E1F5D3D000",
               "class" : "Button",
-              "name" : "btn_clear_bookmarks",
-              "image_name" : "iob:ios7_trash_32"
+              "font_size" : 15,
+              "name" : "btn_clear_bookmarks"
             }
           },
           {
@@ -250,13 +250,13 @@
 
             ],
             "attributes" : {
-              "font_size" : 15,
+              "image_name" : "iob:briefcase_32",
               "frame" : "{{230, 1}, {80, 32}}",
               "title" : "",
               "uuid" : "1446B9A7-CD21-4664-BD94-BD7207980E60",
               "class" : "Button",
-              "name" : "btn_zip",
-              "image_name" : "iob:briefcase_32"
+              "font_size" : 15,
+              "name" : "btn_zip"
             }
           }
         ],
@@ -273,7 +273,7 @@
       },
       {
         "selected" : false,
-        "frame" : "{{78, 68}, {150, 869}}",
+        "frame" : "{{78, 99}, {150, 838}}",
         "class" : "TableView",
         "nodes" : [
 
@@ -281,15 +281,15 @@
         "attributes" : {
           "flex" : "H",
           "data_source_items" : "Genesis\nExodus\nLeviticus\nNumbers\nDeuteronomy\nJoshua\nJudges\nRuth\n1 Samuel\n2 Samuel\n1 Kings\n2 Kings\n1 Chronicles\n2 Chronicles\nEzra\nNehemiah\nEsther\nJob\nPsalms\nProverbs\nEcclesiastes\nSong of Solomon\nIsaiah\nJeremiah\nLamentations\nEzekiel\nDaniel\nHosea\nJoel\nAmos\nObadiah\nJonah\nMicah\nNahum\nHabakkuk\nZephaniah\nHaggai\nZechariah\nMalachi",
-          "row_height" : 44,
-          "frame" : "{{170, 170}, {200, 200}}",
-          "class" : "TableView",
-          "uuid" : "298BD74A-17FC-4242-BB69-83F319D53F5B",
-          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
           "data_source_delete_enabled" : true,
-          "data_source_font_size" : 18,
+          "frame" : "{{170, 170}, {200, 200}}",
           "data_source_number_of_lines" : 1,
-          "name" : "books"
+          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+          "class" : "TableView",
+          "data_source_font_size" : 18,
+          "uuid" : "298BD74A-17FC-4242-BB69-83F319D53F5B",
+          "name" : "books",
+          "row_height" : 44
         }
       },
       {
@@ -301,14 +301,14 @@
         ],
         "attributes" : {
           "flex" : "W",
-          "font_size" : 26,
+          "font_name" : "TimesNewRomanPSMT",
           "frame" : "{{309, 496}, {150, 32}}",
           "uuid" : "CBC7828F-69F7-48B3-956E-908C952A06F7",
           "class" : "Label",
           "alignment" : "center",
           "text" : "Romans 12",
-          "name" : "book_heading",
-          "font_name" : "TimesNewRomanPSMT"
+          "font_size" : 26,
+          "name" : "book_heading"
         }
       },
       {
@@ -320,18 +320,18 @@
         ],
         "attributes" : {
           "flex" : "W",
-          "font_size" : 15,
+          "font_name" : "TimesNewRomanPSMT",
           "frame" : "{{309, 496}, {150, 32}}",
           "uuid" : "57D06407-5C54-4883-861E-23EF316F61BE",
           "class" : "Label",
           "alignment" : "center",
           "text" : "King James Version",
-          "name" : "label_translation",
-          "font_name" : "TimesNewRomanPSMT"
+          "font_size" : 15,
+          "name" : "label_translation"
         }
       },
       {
-        "selected" : true,
+        "selected" : false,
         "frame" : "{{455, 131}, {307, 570}}",
         "class" : "View",
         "nodes" : [
@@ -343,11 +343,11 @@
 
             ],
             "attributes" : {
-              "flex" : "WH",
+              "uuid" : "E759FC25-EF82-4567-B18D-10D327FE2CE1",
               "frame" : "{{104, 295}, {100, 100}}",
               "class" : "View",
               "name" : "view1",
-              "uuid" : "E759FC25-EF82-4567-B18D-10D327FE2CE1"
+              "flex" : "WH"
             }
           },
           {
@@ -359,7 +359,7 @@
             ],
             "attributes" : {
               "flex" : "WH",
-              "name" : "thought_bubble",
+              "font_name" : "TimesNewRomanPSMT",
               "editable" : true,
               "frame" : "{{51, 52}, {200, 200}}",
               "spellchecking_type" : "default",
@@ -367,8 +367,8 @@
               "class" : "TextView",
               "alignment" : "left",
               "autocorrection_type" : "default",
-              "font_size" : 20,
-              "font_name" : "TimesNewRomanPSMT"
+              "name" : "thought_bubble",
+              "font_size" : 20
             }
           },
           {
@@ -420,14 +420,14 @@
             ],
             "attributes" : {
               "flex" : "L",
-              "image_name" : "iob:close_circled_32",
+              "font_size" : 15,
               "frame" : "{{111, 136}, {80, 32}}",
               "tint_color" : "RGBA(1.000000,0.281250,0.281250,1.000000)",
               "title" : "",
               "uuid" : "7AB2B394-108F-4E0B-AD80-EC235B397B89",
               "class" : "Button",
               "name" : "hide_thoughts_button",
-              "font_size" : 15
+              "image_name" : "iob:close_circled_32"
             }
           },
           {
@@ -446,7 +446,7 @@
             }
           },
           {
-            "selected" : false,
+            "selected" : true,
             "frame" : "{{78, 16}, {150, 32}}",
             "class" : "Label",
             "nodes" : [
@@ -454,14 +454,14 @@
             ],
             "attributes" : {
               "flex" : "W",
-              "font_size" : 18,
+              "font_name" : "<System>",
               "frame" : "{{76, 136}, {150, 32}}",
               "uuid" : "D20B601A-66FF-45FA-84AE-7D907B2AE751",
               "class" : "Label",
               "alignment" : "center",
               "text" : "Notes",
-              "name" : "thoughts_title",
-              "font_name" : "<System>"
+              "font_size" : 18,
+              "name" : "thoughts_title"
             }
           },
           {
@@ -499,7 +499,7 @@
         }
       },
       {
-        "selected" : false,
+        "selected" : true,
         "frame" : "{{8, 131}, {517, 570}}",
         "class" : "View",
         "nodes" : [
@@ -526,7 +526,7 @@
             ],
             "attributes" : {
               "uuid" : "4883FC8D-6406-484A-B2C0-0ED939EE4169",
-              "flex" : "W",
+              "font_size" : 17,
               "corner_radius" : 5,
               "frame" : "{{170, 254}, {200, 32}}",
               "border_color" : "RGBA(0.452830,0.452830,0.452830,1.000000)",
@@ -539,7 +539,7 @@
               "spellchecking_type" : "default",
               "class" : "TextField",
               "name" : "search_field",
-              "font_size" : 17
+              "flex" : "W"
             }
           },
           {
@@ -550,14 +550,14 @@
 
             ],
             "attributes" : {
-              "font_size" : 18,
+              "font_name" : "AppleSDGothicNeo-Regular",
               "frame" : "{{195, 254}, {150, 32}}",
               "class" : "Label",
               "text" : "Enter a query below:",
               "alignment" : "center",
               "uuid" : "013A8223-5B0A-4477-9778-CB4E74D360E2",
-              "name" : "label1",
-              "font_name" : "AppleSDGothicNeo-Regular"
+              "font_size" : 18,
+              "name" : "label1"
             }
           },
           {
@@ -570,15 +570,15 @@
             "attributes" : {
               "flex" : "WH",
               "data_source_items" : "",
-              "name" : "tableview1",
-              "frame" : "{{170, 170}, {200, 200}}",
-              "uuid" : "8657D611-5F75-4C8B-8537-59BBBC2D9ACF",
-              "data_source_number_of_lines" : 1,
-              "class" : "TableView",
-              "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
-              "data_source_font_size" : 18,
               "row_height" : 61,
-              "data_source_delete_enabled" : false
+              "frame" : "{{170, 170}, {200, 200}}",
+              "class" : "TableView",
+              "uuid" : "8657D611-5F75-4C8B-8537-59BBBC2D9ACF",
+              "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+              "data_source_number_of_lines" : 1,
+              "data_source_font_size" : 18,
+              "data_source_delete_enabled" : false,
+              "name" : "tableview1"
             }
           },
           {
@@ -590,7 +590,7 @@
             ],
             "attributes" : {
               "uuid" : "FE580F7E-5099-4B28-9474-F1AE23D64603",
-              "flex" : "B",
+              "font_size" : 17,
               "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
               "frame" : "{{284, 412}, {200, 200}}",
               "editable" : false,
@@ -601,7 +601,7 @@
               "spellchecking_type" : "default",
               "class" : "TextView",
               "name" : "textview2",
-              "font_size" : 17
+              "flex" : "B"
             }
           },
           {
@@ -612,14 +612,14 @@
 
             ],
             "attributes" : {
-              "image_name" : "iob:close_circled_32",
+              "font_size" : 15,
               "tint_color" : "RGBA(0.386792,0.386792,0.386792,1.000000)",
               "frame" : "{{233, 243}, {80, 32}}",
               "title" : "",
               "class" : "Button",
               "uuid" : "C75D479B-17BD-45BC-8381-A62876DC2291",
               "name" : "btn_close",
-              "font_size" : 15
+              "image_name" : "iob:close_circled_32"
             }
           },
           {
@@ -630,14 +630,14 @@
 
             ],
             "attributes" : {
-              "image_name" : "iob:close_circled_32",
+              "font_size" : 15,
               "tint_color" : "RGBA(0.490566,0.490566,0.490566,1.000000)",
               "frame" : "{{233, 278}, {80, 32}}",
               "title" : "",
               "class" : "Button",
               "uuid" : "387E7F6A-AF7E-4CD8-B8D2-FD858209EE2C",
               "name" : "btn_clear_search",
-              "font_size" : 15
+              "image_name" : "iob:close_circled_32"
             }
           },
           {
@@ -649,7 +649,7 @@
             ],
             "attributes" : {
               "border_width" : 1,
-              "image_name" : "iob:forward_32",
+              "font_size" : 15,
               "tint_color" : "RGBA(0.462264,0.462264,0.462264,1.000000)",
               "frame" : "{{233, 278}, {80, 32}}",
               "title" : "",
@@ -658,7 +658,7 @@
               "class" : "Button",
               "uuid" : "D8400D7F-1439-4729-87A6-D8DCF3CE0EC0",
               "name" : "btn_forward",
-              "font_size" : 15
+              "image_name" : "iob:forward_32"
             }
           },
           {
@@ -669,19 +669,19 @@
 
             ],
             "attributes" : {
-              "font_size" : 18,
+              "font_name" : "<System>",
               "frame" : "{{198, 278}, {150, 32}}",
               "class" : "Label",
               "text" : "0",
               "alignment" : "center",
               "uuid" : "F5A7DED2-3529-4FF4-9478-51DC3C47BA3C",
-              "name" : "matches",
-              "font_name" : "<System>"
+              "font_size" : 18,
+              "name" : "matches"
             }
           },
           {
             "selected" : false,
-            "frame" : "{{56, 46}, {101, 39}}",
+            "frame" : "{{20, 45}, {78, 39}}",
             "class" : "Button",
             "nodes" : [
 
@@ -697,6 +697,27 @@
               "corner_radius" : 6,
               "border_color" : "RGBA(1.000000,0.416667,0.416667,1.000000)",
               "name" : "btn_save_all",
+              "font_size" : 15
+            }
+          },
+          {
+            "selected" : false,
+            "frame" : "{{106, 45}, {51, 39}}",
+            "class" : "Button",
+            "nodes" : [
+
+            ],
+            "attributes" : {
+              "border_width" : 1,
+              "flex" : "",
+              "frame" : "{{233, 278}, {80, 32}}",
+              "tint_color" : "RGBA(1.000000,0.312500,0.312500,1.000000)",
+              "title" : "Copy",
+              "uuid" : "E1E1AB71-3837-4F37-AC11-DB75E4F4097D",
+              "class" : "Button",
+              "corner_radius" : 6,
+              "border_color" : "RGBA(1.000000,0.416667,0.416667,1.000000)",
+              "name" : "btn_copy_all",
               "font_size" : 15
             }
           }
@@ -769,7 +790,7 @@
         ],
         "attributes" : {
           "uuid" : "05A951FA-9731-48DD-A667-315881678D6D",
-          "font_size" : 18,
+          "flex" : "T",
           "corner_radius" : 9,
           "background_color" : "RGBA(1.000000,0.791667,0.375000,1.000000)",
           "frame" : "{{309, 496}, {150, 32}}",
@@ -781,16 +802,18 @@
           "font_name" : "<System>",
           "class" : "Label",
           "name" : "tip3",
-          "flex" : "T"
+          "font_size" : 18
         }
       }
     ],
     "attributes" : {
+      "flex" : "",
       "enabled" : true,
-      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
       "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "custom_class" : "bible_class",
       "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-      "flex" : ""
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "name" : ""
     }
   }
 ]
