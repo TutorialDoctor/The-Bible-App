@@ -1,11 +1,9 @@
-import ui,sqlite3,datetime,sound,console,clipboard,dialogs,re,objc_util,editor,os,webbrowser,speech,fileinput,zipfile,webbrowser
+import ui,sqlite3,datetime,sound,console,clipboard,dialogs,re,objc_util,editor,os,webbrowser,speech,fileinput,zipfile,webbrowser,json
 from objc_util import *
 
 app = UIApplication.sharedApplication()
 
 
-# coding: utf-8
-import ui,sqlite3,datetime,sound,console,clipboard,dialogs,re,objc_util,editor,os,webbrowser,speech,fileinput,zipfile
 
 # This script uses 2 tables from the database, but there are others for translations
 
@@ -21,6 +19,7 @@ save_file = 'favorites.txt'
 thoughts_file='thoughts.txt'
 bookmarks_file='bookmarks.txt'
 translation='t_kjv'
+backup='backup.txt'
 fullscreen_preview=None
 
 
@@ -143,192 +142,192 @@ web=ui.load_view_str("""
 settings_view = """
 [
   {
-    "class" : "View",
-    "attributes" : {
-      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
-      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
-      "enabled" : true,
-      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
-      "flex" : ""
-    },
-    "frame" : "{{0, 0}, {336, 544}}",
     "selected" : false,
+    "frame" : "{{0, 0}, {336, 544}}",
+    "class" : "View",
     "nodes" : [
       {
-        "class" : "Label",
-        "attributes" : {
-          "font_size" : 18,
-          "text" : "Font Size",
-          "font_name" : "<System>",
-          "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
-          "name" : "label1",
-          "text_color" : "RGBA(0.396226,0.396226,0.396226,1.000000)",
-          "class" : "Label",
-          "alignment" : "center",
-          "frame" : "{{195, 254}, {150, 32}}",
-          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2"
-        },
+        "selected" : false,
         "frame" : "{{95, 17}, {150, 32}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
-      },
-      {
         "class" : "Label",
-        "attributes" : {
-          "font_size" : 18,
-          "text" : "Full Preview",
-          "font_name" : "<System>",
-          "name" : "label1",
-          "text_color" : "RGBA(0.405660,0.405660,0.405660,1.000000)",
-          "class" : "Label",
-          "alignment" : "left",
-          "frame" : "{{195, 254}, {150, 32}}",
-          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2"
-        },
-        "frame" : "{{51, 121}, {150, 32}}",
-        "selected" : false,
         "nodes" : [
 
-        ]
-      },
-      {
-        "class" : "Switch",
+        ],
         "attributes" : {
-          "class" : "Switch",
-          "value" : true,
-          "frame" : "{{245, 255}, {51, 31}}",
-          "uuid" : "F7BDB82C-1EF1-4D6E-B5FC-0F1FE88FE431",
-          "name" : "switch1"
-        },
-        "frame" : "{{242, 122}, {51, 31}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
-      },
-      {
-        "class" : "Label",
-        "attributes" : {
-          "font_size" : 18,
-          "text" : "Heart scripture",
-          "font_name" : "<System>",
           "name" : "label1",
           "text_color" : "RGBA(0.396226,0.396226,0.396226,1.000000)",
-          "class" : "Label",
-          "alignment" : "left",
+          "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
           "frame" : "{{195, 254}, {150, 32}}",
-          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2"
-        },
-        "frame" : "{{51, 191}, {150, 32}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
-      },
-      {
-        "class" : "Switch",
-        "attributes" : {
-          "class" : "Switch",
-          "value" : true,
-          "frame" : "{{245, 255}, {51, 31}}",
-          "uuid" : "F7BDB82C-1EF1-4D6E-B5FC-0F1FE88FE431",
-          "name" : "switch1"
-        },
-        "frame" : "{{242, 192}, {51, 31}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
-      },
-      {
-        "class" : "Label",
-        "attributes" : {
+          "class" : "Label",
+          "text" : "Font Size",
+          "alignment" : "center",
+          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2",
           "font_size" : 18,
-          "text" : "Heart scripture",
-          "font_name" : "<System>",
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{51, 121}, {150, 32}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
           "name" : "label1",
           "text_color" : "RGBA(0.405660,0.405660,0.405660,1.000000)",
-          "class" : "Label",
-          "alignment" : "left",
           "frame" : "{{195, 254}, {150, 32}}",
-          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2"
-        },
-        "frame" : "{{51, 260}, {150, 32}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
+          "class" : "Label",
+          "text" : "Full Preview",
+          "alignment" : "left",
+          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        }
       },
       {
+        "selected" : false,
+        "frame" : "{{242, 122}, {51, 31}}",
         "class" : "Switch",
+        "nodes" : [
+
+        ],
         "attributes" : {
-          "class" : "Switch",
           "value" : true,
           "frame" : "{{245, 255}, {51, 31}}",
-          "uuid" : "F7BDB82C-1EF1-4D6E-B5FC-0F1FE88FE431",
-          "name" : "switch1"
-        },
-        "frame" : "{{242, 261}, {51, 31}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
+          "class" : "Switch",
+          "name" : "switch1",
+          "uuid" : "F7BDB82C-1EF1-4D6E-B5FC-0F1FE88FE431"
+        }
       },
       {
-        "class" : "Slider",
+        "selected" : false,
+        "frame" : "{{51, 191}, {150, 32}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
         "attributes" : {
-          "class" : "Slider",
+          "name" : "clear on save",
+          "text_color" : "RGBA(0.396226,0.396226,0.396226,1.000000)",
+          "frame" : "{{195, 254}, {150, 32}}",
+          "class" : "Label",
+          "text" : "Clear on Save",
+          "alignment" : "left",
+          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{242, 192}, {51, 31}}",
+        "class" : "Switch",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "value" : true,
+          "frame" : "{{245, 255}, {51, 31}}",
+          "class" : "Switch",
+          "name" : "clear switch",
+          "uuid" : "F7BDB82C-1EF1-4D6E-B5FC-0F1FE88FE431"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{51, 260}, {150, 32}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "name" : "label1",
+          "text_color" : "RGBA(0.405660,0.405660,0.405660,1.000000)",
+          "frame" : "{{195, 254}, {150, 32}}",
+          "class" : "Label",
+          "text" : "Heart scripture",
+          "alignment" : "left",
+          "uuid" : "703EBC4B-A8C3-4CF5-BFD8-8EBEC7F3CCB2",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{242, 261}, {51, 31}}",
+        "class" : "Switch",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "value" : true,
+          "frame" : "{{245, 255}, {51, 31}}",
+          "class" : "Switch",
+          "name" : "switch1",
+          "uuid" : "F7BDB82C-1EF1-4D6E-B5FC-0F1FE88FE431"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{69, 57}, {200, 34}}",
+        "class" : "Slider",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "flex" : "W",
           "value" : 0.5,
           "frame" : "{{68, 255}, {200, 34}}",
-          "uuid" : "64D8FB92-9362-4C8E-ABCC-8D93A0AE21F5",
+          "class" : "Slider",
           "name" : "slider_font",
-          "flex" : "W"
-        },
-        "frame" : "{{69, 57}, {200, 34}}",
-        "selected" : false,
-        "nodes" : [
-
-        ]
+          "uuid" : "64D8FB92-9362-4C8E-ABCC-8D93A0AE21F5"
+        }
       },
       {
-        "class" : "Label",
-        "attributes" : {
-          "font_size" : 18,
-          "text" : "Aa",
-          "font_name" : "<System>",
-          "name" : "label3",
-          "class" : "Label",
-          "alignment" : "center",
-          "frame" : "{{93, 256}, {150, 32}}",
-          "uuid" : "C22A3BFB-B4DC-4C89-AFCF-7AED93972D5D"
-        },
+        "selected" : false,
         "frame" : "{{15, 59}, {49, 32}}",
-        "selected" : false,
+        "class" : "Label",
         "nodes" : [
 
-        ]
+        ],
+        "attributes" : {
+          "name" : "label3",
+          "frame" : "{{93, 256}, {150, 32}}",
+          "class" : "Label",
+          "text" : "Aa",
+          "alignment" : "center",
+          "uuid" : "C22A3BFB-B4DC-4C89-AFCF-7AED93972D5D",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        }
       },
       {
-        "class" : "Label",
-        "attributes" : {
-          "font_size" : 28,
-          "text" : "Aa",
-          "font_name" : "<System>",
-          "name" : "label3",
-          "class" : "Label",
-          "alignment" : "center",
-          "frame" : "{{93, 256}, {150, 32}}",
-          "uuid" : "C22A3BFB-B4DC-4C89-AFCF-7AED93972D5D"
-        },
-        "frame" : "{{274, 59}, {49, 32}}",
         "selected" : false,
+        "frame" : "{{274, 59}, {49, 32}}",
+        "class" : "Label",
         "nodes" : [
 
-        ]
+        ],
+        "attributes" : {
+          "name" : "label3",
+          "frame" : "{{93, 256}, {150, 32}}",
+          "class" : "Label",
+          "text" : "Aa",
+          "alignment" : "center",
+          "uuid" : "C22A3BFB-B4DC-4C89-AFCF-7AED93972D5D",
+          "font_size" : 28,
+          "font_name" : "<System>"
+        }
       }
-    ]
+    ],
+    "attributes" : {
+      "enabled" : true,
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "flex" : ""
+    }
   }
 ]
 """
@@ -521,6 +520,25 @@ map_view = """
 #--- CLASSES			
 # I will leave the results as a list so that I can load them into a tableview data source
 # Textfield
+
+# currently this class only backs up the thoughts text. hopefull it will bak up entire state of the app 
+class bible_class(ui.View):
+	def __init__(self):
+		pass
+	def will_close(self):
+		with open('Notes/'+backup,'w') as outfile:
+			for x in self.subviews:
+				if x.name == 'thoughts':
+					outfile.write(x['thought_bubble'].text)
+		dialogs.hud_alert('backup',duration=.3)
+					
+	def did_load(self):
+		with open('Notes/'+backup,'r',encoding='utf-8') as infile:
+			for x in self.subviews:
+				if x.name == 'thoughts':
+					x['thought_bubble'].text=infile.read()
+					x['thoughts_title'].text = infile.name
+		
 
 # Someone elses' code. works well but I'd have to move all functions to thos class. Apply to Notes view to test.
 class customView(ui.View):
@@ -744,6 +762,7 @@ def updates(*args):
 	tbl_books = args[0]
 	tbl_chapters = args[1]
 	control_testaments = args[2]
+	sound.play_effect('rpg:HandleSmallLeather')
 	
 	# A query to get all book names in the 'key_english' table
 	all_bks_query = 'select n from key_english'
@@ -820,10 +839,18 @@ def selectionToThoughts(sender):
 
 # Save text of a textview to a file
 def save_thoughts(sender):
-	with open('Notes/'+thoughts_file,'a',encoding='utf-8')	as outfile:
-		outfile.write(time_stamp+'\n'+thought_bubble.text+'\n')
-	sound.play_effect('rpg:BookFlip2')
-	console.alert('Saved to {}'.format(thoughts_file))
+	if clear_switch.value == True:
+		with open('Notes/'+thoughts_file,'a',encoding='utf-8')	as outfile:
+			outfile.write(time_stamp+'\n'+thought_bubble.text+'\n')
+		sound.play_effect('rpg:BookFlip2')
+		console.alert('Saved to {}'.format(thoughts_file))
+		thought_bubble.text=''
+	elif clear_switch.value!=True:
+		with open('Notes/'+thoughts_file,'a',encoding='utf-8')	as outfile:
+			outfile.write(time_stamp+'\n'+thought_bubble.text+'\n')
+		sound.play_effect('rpg:BookFlip2')
+		console.alert('Saved to {}'.format(thoughts_file))
+	
 
 # Make a textview editable or not editable with a switch.
 def freeze(sender):
@@ -911,6 +938,7 @@ def hide_search(sender):
 	#search.hidden=True
 
 def choose_theme(sender):
+	background_changes=[search_selection,search,books,bible,thoughts_view,heading,theme_button,book_marks]
 	light_themes = [None,'Default','Dawn','Tomorrow','Solarized Light']
 	dark_themes = ['Solarized Dark','Cool Glow','Gold','Tomorrow Night','Oceanic','Editorial']
 	thm_nm= dialogs.list_dialog('Themes',light_themes+dark_themes)
@@ -1032,7 +1060,16 @@ def search_to_file(sender):
 	string = ''.join(pairs[x[0]]+str(x)+'\n\n' for x in all)
 	with open('Notes/'+'search: '+search_field.text+deep_search_field.text+'.txt','a') as outfile:
 		outfile.write(matches.text+'\n\n'+string)
+	sound.play_effect('rpg:BookFlip2')
 	dialogs.alert('It is written')
+
+def search_to_clipboard(sender):
+	tbl=table
+	all = tbl.data_source.items
+	string = ''.join(pairs[x[0]]+str(x)+'\n\n' for x in all)
+	clipboard.set(matches.text+'\n\n'+string)
+	sound.play_effect('rpg:BookFlip2')
+	dialogs.alert('It is coppied')
 
 def grab_screen(sender):
    v=sender.superview.superview
@@ -1138,6 +1175,8 @@ def capture_screen(sender):
 #--- NEW LAYOUT
 #t=ui.load_view('title')
 
+	
+	
 #--- IMPLEMENTATION
 # Getting ui elements and setting actions
 bible = ui.load_view()
@@ -1193,6 +1232,8 @@ file_button.action=view_files
 theme_button = bible.left_button_items[1]
 theme_button.action = choose_theme
 translation_label = bible['label_translation']
+
+		
 #map_button = right_pane['panel']['btn_map']
 #map_button.action = show_map
 
@@ -1247,6 +1288,8 @@ table.delegate = MyTableViewDelegate()
 matches = search['matches']
 save_all_button = search['btn_save_all']
 save_all_button.action = search_to_file
+copy_all_button = search['btn_copy_all']
+copy_all_button.action = search_to_clipboard
 # END SEARCH ENGINE
 
 
@@ -1259,15 +1302,18 @@ font_slider.continuous = True
 font_slider.action = change_font_size
 fullscreen_switch = settings_view['switch1']
 fullscreen_switch.action=toggle_fullscreen
+clear_switch = settings_view['clear switch']
 # END SETTINGS
 
 #---THEMES
-background_changes=[search_selection,search,books,contents,bible,thoughts_view,heading,theme_button,book_marks]
-for x in background_changes:
-	try:
-		x.background_color='#fff'
-	except:
-		None
+def theme_it():
+	background_changes=[search_selection,search,books,bible,thoughts_view,heading,theme_button,book_marks]
+	for x in background_changes:
+		try:
+			x.background_color='#fff'
+		except:
+			None
+theme_it()
 # END THEMES
 
 #--- Tips
@@ -1301,6 +1347,7 @@ reader_button.action=show_reader
 # IMPLEMENTATION
 fill_tableview()
 
+
 #thought_bubble.text = instructions
 
 # This lambda function is what allows me to pass arguments to a view's action function. This function is what makes it all work.
@@ -1327,3 +1374,5 @@ books.data_source.action = f
 
 editor.apply_ui_theme(bible)
 editor.present_themed(bible)
+
+
