@@ -3,7 +3,7 @@ from objc_util import *
 
 app = UIApplication.sharedApplication()
 
-
+# NOTE: Create the backup.txt file in the Notes folder. (I will update eventually.)
 
 # This script uses 2 tables from the database, but there are others for translations
 
@@ -21,10 +21,6 @@ bookmarks_file='bookmarks.txt'
 translation='t_kjv'
 backup='backup.txt'
 fullscreen_preview=None
-
-#Creating the backup file in the notes folder for you.
-with open("Notes/{}".format(backup),'w') as outfile:
-	outfile.write("")
 	
 
 # We will load the following list into a list dialog
