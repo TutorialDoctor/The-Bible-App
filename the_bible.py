@@ -22,6 +22,10 @@ translation='t_kjv'
 backup='backup.txt'
 fullscreen_preview=None
 
+#Creating the backup file in the notes folder for you.
+with open("Notes/{}".format(backup),'w') as outfile:
+	outfile.write("")
+	
 
 # We will load the following list into a list dialog
 translations={"t_asv":"American Standard - ASV1901 (ASV)",
@@ -33,7 +37,7 @@ translations={"t_asv":"American Standard - ASV1901 (ASV)",
 "t_ylt":"Young's Literal Translation (YLT)"}
 # END VARIABLES
 
-churches=['Union City (CA)','Vallejo (CA)','Moreno Valley (CA)','Baton Rouge (LA)','Tyler (TX)','Clarksville (NC)','Morrow (GA)','Xenia (OH)']
+churches=[]
 
 images = {
 	'0':'iob:share_32',
